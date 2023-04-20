@@ -1,11 +1,11 @@
 .gridItem {
-  height: 300px;
+  height: 200px;
 }
 .gridItem img {
   border-radius: 5px;
 }
 .imageLayer {
-  height: 300px;
+  height: 200px;
 }
 .imageLayer img {
   border-radius: 5px;
