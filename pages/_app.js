@@ -1,11 +1,14 @@
 import { ChakraProvider } from '@chakra-ui/react'
+import Layout from '@/components/layout'
 import blogTheme from '@/lib/theme'
 import '../styles/global.css'
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps, router }) {
   return (
     <ChakraProvider theme={blogTheme}>
-      <Component {...pageProps} />
+      <Layout route={router}>
+        <Component {...pageProps} />
+      </Layout>
     </ChakraProvider>
   )
 }

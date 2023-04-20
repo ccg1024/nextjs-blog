@@ -18,9 +18,11 @@ import styles from '../styles/navbar.module.css'
 
 const NavBrand = () => {
   return (
-    <Box p={2}>
+    <Box className={styles.navBrandBox}>
       <Link href="/">
-        <Heading as="h2">Crazyboy</Heading>
+        <Heading padding={2} as="h2">
+          NextJs
+        </Heading>
       </Link>
     </Box>
   )
@@ -38,7 +40,7 @@ const NavLeftItem = ({ isActive, children }) => {
   )
 }
 
-export default function Navbar() {
+export default function Navbar({ path }) {
   return (
     <Box
       position="fixed"
@@ -53,11 +55,11 @@ export default function Navbar() {
 
         <Flex justifyContent="space-between" flexGrow={1} alignItems="center">
           <Box display={{ base: 'none', md: 'flex' }}>
-            <Link href="/" className={styles.navLink}>
-              <NavLeftItem>work</NavLeftItem>
+            <Link href="/work" className={styles.navLink}>
+              <NavLeftItem isActive={path === '/work'}>work</NavLeftItem>
             </Link>
-            <Link href="#" className={styles.navLink}>
-              <NavLeftItem>error</NavLeftItem>
+            <Link href="/note" className={styles.navLink}>
+              <NavLeftItem isActive={path === '/note'}>note</NavLeftItem>
             </Link>
           </Box>
           <Box display="flex" justifyContent="right" flexGrow={1}>
@@ -68,9 +70,18 @@ export default function Navbar() {
                 backgroundColor="white"
               />
               <MenuList>
-                <MenuItem>about</MenuItem>
-                <MenuItem>work</MenuItem>
-                <MenuItem>error</MenuItem>
+                <Link href="/">
+                  <MenuItem>About</MenuItem>
+                </Link>
+                <MenuItem>
+                  <Link href="/work">
+                    <Text>work</Text>
+                  </Link>
+                </MenuItem>
+
+                <Link href="/note">
+                  <MenuItem>note</MenuItem>
+                </Link>
               </MenuList>
             </Menu>
           </Box>

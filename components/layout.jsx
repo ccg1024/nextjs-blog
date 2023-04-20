@@ -9,10 +9,10 @@ export default function Layout({ route, children }) {
     <Box as="main">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Crazyboy - Homepage</title>
+        <title>Homepage</title>
       </Head>
-      <Navbar />
-      <Container maxW="container.lg" pt={16}>
+      <Navbar path={route.asPath} />
+      <Container maxW="container.lg" pt={20}>
         <Box>{children}</Box>
       </Container>
     </Box>

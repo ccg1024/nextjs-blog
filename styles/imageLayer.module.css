@@ -1,0 +1,32 @@
+.gridItem {
+  margin: auto;
+}
+.imageLayer {
+  box-shadow: 10px 1px 24px -4px rgba(0, 0, 0, 0.69);
+  -webkit-box-shadow: 10px 1px 24px -4px rgba(0, 0, 0, 0.69);
+  -moz-box-shadow: 10px 1px 24px -4px rgba(0, 0, 0, 0.69);
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+@media (min-width: 576px) {
+  .imageLayer {
+    width: 200px;
+    height: 150px;
+  }
+  .gridItem {
+    width: 400px;
+    height: 300px;
+  }
+}
+
+@media (min-width: 768px) {
+  .imageLayer {
+    width: 300px;
+    height: 225px;
+  }
+  .gridItem {
+    width: 300px;
+    height: 225px;
+  }
+}
