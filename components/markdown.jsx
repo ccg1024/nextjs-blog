@@ -80,8 +80,9 @@ const MarkComponent = ({ imgPrex, children }) => {
                 alt={alt}
                 {...props}
                 borderRadius="md"
-                boxShadow="dark-lg"
+                boxShadow="lg"
                 m="auto"
+                marginY="2rem"
               />
             )
           },

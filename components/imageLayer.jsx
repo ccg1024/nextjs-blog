@@ -1,18 +1,18 @@
 import React from 'react'
 import Image from 'next/image'
-import { Center } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import styles from '../styles/imageLayer.module.css'
 
 export default function ImageLayer({ href, alt }) {
   return (
-    <Center>
-      <Image
-        src={href}
-        width={200}
-        height={150}
-        alt={alt}
-        className={styles.imageLayer}
-      />
-    </Center>
+    <Box
+      position="relative"
+      width="100%"
+      boxShadow="lg"
+      zIndex={1}
+      className={styles.imageLayer}
+    >
+      <Image src={href} fill alt={alt} />
+    </Box>
   )
 }

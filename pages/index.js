@@ -29,7 +29,7 @@ export default function Home({ infoData }) {
           <Section delay={0.3}>
             <ParagraphHead>Notes</ParagraphHead>
             <SimpleGrid columns={[1, 1, 2]} gap={8}>
-              <Box border="1px solid black" borderRadius="5px" padding={2}>
+              <Box>
                 <GridItem
                   thumbnail="/images/cover/vim-plug_note.png"
                   title="Novim Plugin"
@@ -38,7 +38,7 @@ export default function Home({ infoData }) {
                   Neovim 插件管理工具—— vim-plug
                 </GridItem>
               </Box>
-              <Box border="1px solid black" borderRadius="5px" padding={2}>
+              <Box>
                 <GridItem
                   thumbnail="/images/cover/lsp-config_note.png"
                   title="LSP config"
@@ -53,7 +53,7 @@ export default function Home({ infoData }) {
           <Section delay={0.4}>
             <ParagraphHead>Works</ParagraphHead>
             <SimpleGrid columns={[1, 1, 2]} gap={8}>
-              <Box border="1px solid black" borderRadius="5px" padding={2}>
+              <Box>
                 <GridItem
                   thumbnail="/images/cover/imarkdown_work.png"
                   title="Imarkdown"

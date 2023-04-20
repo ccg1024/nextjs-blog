@@ -18,12 +18,7 @@ export default function Note({ allNotes }) {
             {allNotes &&
               allNotes.map(item => {
                 return (
-                  <Box
-                    key={item.id}
-                    border="1px solid black"
-                    borderRadius="5px"
-                    padding={2}
-                  >
+                  <Box key={item.id}>
                     <GridItem
                       thumbnail={`/images/cover/${item.id}_note.png`}
                       title={item.title}

@@ -18,12 +18,7 @@ export default function Work({ allWorks }) {
             {allWorks &&
               allWorks.map(item => {
                 return (
-                  <Box
-                    key={item.id}
-                    border="1px solid black"
-                    borderRadius="5px"
-                    padding={2}
-                  >
+                  <Box key={item.id}>
                     <GridItem
                       thumbnail={`/images/cover/${item.id}_work.png`}
                       title={item.title}

@@ -49,6 +49,7 @@ export default function Navbar({ path }) {
       backdropFilter="auto"
       backdropBlur="8px"
       boxShadow="lg"
+      zIndex={10}
     >
       <Flex alignItems="center">
         <NavBrand />
@@ -67,7 +68,7 @@ export default function Navbar({ path }) {
               <MenuButton
                 as={IconButton}
                 icon={<HamburgerIcon />}
-                backgroundColor="white"
+                backgroundColor="whiteAlpha.50"
               />
               <MenuList>
                 <Link href="/">
