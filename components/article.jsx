@@ -3,13 +3,12 @@ import Head from 'next/head'
 import { Box } from '@chakra-ui/react'
 
 export default function Article({ title, children }) {
+  const newTitle = title ? title + '- blog' : 'Homepage'
   return (
     <>
-      {title && (
-        <Head>
-          <title>{title} - blog</title>
-        </Head>
-      )}
+      <Head>
+        <title>{newTitle}</title>
+      </Head>
       <Box>{children}</Box>
     </>
   )

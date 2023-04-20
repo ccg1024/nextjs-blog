@@ -4,7 +4,7 @@ import { Container, Box, SimpleGrid } from '@chakra-ui/react'
 import Section from '@/components/section'
 import { ParagraphHead } from '@/components/paragraph'
 import GridItem from '@/components/grid-item'
-import { getAllWorks } from '@/lib/posts'
+import { getAllMarkdowns } from '@/lib/posts'
 
 export default function Work({ allWorks }) {
   return (
@@ -42,7 +42,7 @@ export default function Work({ allWorks }) {
 }
 
 export async function getStaticProps() {
-  const allWorks = getAllWorks()
+  const allWorks = getAllMarkdowns('works')
 
   return {
     props: {

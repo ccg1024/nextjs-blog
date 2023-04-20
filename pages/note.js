@@ -4,7 +4,7 @@ import Article from '@/components/article'
 import Section from '@/components/section'
 import { ParagraphHead } from '@/components/paragraph'
 import GridItem from '@/components/grid-item'
-import { getAllNotes } from '@/lib/posts'
+import { getAllMarkdowns } from '@/lib/posts'
 
 export default function Note({ allNotes }) {
   return (
@@ -42,7 +42,7 @@ export default function Note({ allNotes }) {
 }
 
 export async function getStaticProps() {
-  const allNotes = getAllNotes()
+  const allNotes = getAllMarkdowns('notes')
 
   return {
     props: {

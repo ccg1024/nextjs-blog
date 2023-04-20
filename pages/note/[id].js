@@ -1,54 +1,26 @@
 import React from 'react'
-import Link from 'next/link'
-import { Box, Flex, Text, Heading, Divider } from '@chakra-ui/react'
-import { ArrowRightIcon, ChevronRightIcon } from '@chakra-ui/icons'
+import { Box, Divider } from '@chakra-ui/react'
 import Article from '@/components/article'
-import ImageLayer from '@/components/imageLayer'
-import { ParagraphHead } from '@/components/paragraph'
 import Section from '@/components/section'
 import MarkComponent from '@/components/markdown'
-import { getNoteList, getNoteData } from '@/lib/posts'
-
-const NoteHead = ({ title, date }) => {
-  return (
-    <Flex gap={2} alignItems="start" marginY={8} flexWrap="wrap">
-      <Heading as="h2" fontSize="2rem">
-        {title}
-      </Heading>
-      <Box display="flex" alignItems="center" gap={2}>
-        <Text backgroundColor={'gray.100'} padding={1} borderRadius="lg">
-          {date}
-        </Text>
-
-        <ArrowRightIcon />
-
-        <Link href="/">
-          <Text variant="link-text">Home</Text>
-        </Link>
-
-        <ChevronRightIcon />
-
-        <Link href="/note">
-          <Text variant="link-text">Note</Text>
-        </Link>
-      </Box>
-    </Flex>
-  )
-}
+import { DetailHead, DetailImage } from '@/components/detail-page'
+import { getMarkdownId, getMarkdownData } from '@/lib/posts'
 
 const Note = ({ noteData }) => {
   return (
-    <Article title={'note'}>
+    <Article title={'Note'}>
       <Section delay={0.1}>
-        <ImageLayer
-          href={`/images/cover/${noteData.id}_note.png`}
-          alt={`${noteData.title}`}
+        <DetailImage
+          id={noteData.id}
+          title={noteData.title}
+          coverSub="note"
+          page="Note"
+          description={noteData.description}
         />
-        <ParagraphHead>Note</ParagraphHead>
       </Section>
 
       <Section delay={0.2}>
-        <NoteHead title={noteData.title} date={noteData.date} />
+        <DetailHead title={noteData.title} date={noteData.date} page="note" />
 
         <Divider />
 
@@ -64,7 +36,7 @@ const Note = ({ noteData }) => {
 
 export async function getStaticPaths() {
   // [{params: {id: xxx}}, {}]
-  const paths = getNoteList()
+  const paths = getMarkdownId('notes')
 
   return {
     paths,
@@ -73,7 +45,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const noteData = getNoteData(params.id)
+  const noteData = getMarkdownData('notes', params.id)
   return {
     props: {
       noteData

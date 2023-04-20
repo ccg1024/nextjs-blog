@@ -1,5 +1,5 @@
 import Article from '@/components/article'
-import { Box, Text, Container, Flex, Link, SimpleGrid } from '@chakra-ui/react'
+import { Box, Container, Link, SimpleGrid } from '@chakra-ui/react'
 import IndexHead from '@/components/index-head'
 import { Paragraph, ParagraphHead } from '@/components/paragraph'
 import Section from '@/components/section'
@@ -19,7 +19,7 @@ export default function Home({ infoData }) {
             <Paragraph>
               该项目通过 nextJs 脚手架创建，技术栈为 NextJS ，ReactJS ，ChakraUI
               。尝试构建静态博客网站。项目源码地址为
-              <Link href="https://github.com" pl={2}>
+              <Link href="https://github.com/ccg1024/nextjs-blog.git" pl={2}>
                 source
               </Link>
               ，博客内容通过 NextJS 获取 Markdown 文件生成。

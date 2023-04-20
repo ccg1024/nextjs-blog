@@ -73,11 +73,9 @@ export default function Navbar({ path }) {
                 <Link href="/">
                   <MenuItem>About</MenuItem>
                 </Link>
-                <MenuItem>
-                  <Link href="/work">
-                    <Text>work</Text>
-                  </Link>
-                </MenuItem>
+                <Link href="/work">
+                  <MenuItem>work</MenuItem>
+                </Link>
 
                 <Link href="/note">
                   <MenuItem>note</MenuItem>
