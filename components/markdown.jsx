@@ -2,7 +2,7 @@ import React from 'react'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import ReactMarkdown from 'react-markdown'
-import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
+import SyntaxHighlighter from 'react-syntax-highlighter'
 import docco from 'react-syntax-highlighter/dist/cjs/styles/hljs/docco'
 import dracula from 'react-syntax-highlighter/dist/cjs/styles/hljs/dracula'
 import {
@@ -43,6 +43,7 @@ const MarkComponent = ({ imgPrex, children }) => {
           blockquote: ({ node, ...props }) => {
             return (
               <Box
+                overflow="auto"
                 borderRadius="md"
                 bg={colors.blockQuote}
                 padding="1rem"
@@ -68,7 +69,7 @@ const MarkComponent = ({ imgPrex, children }) => {
             return <ListItem textAlign="justify" {...props} />
           },
           p: ({ node, ...props }) => {
-            return <Text {...props} />
+            return <Text overflow="auto" {...props} />
           },
           img: ({ node, src, alt, ...props }) => {
             if (imgPrex) {
