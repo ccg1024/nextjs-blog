@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Text, Heading } from '@chakra-ui/react'
+import { Box, Text, Heading, useColorModeValue } from '@chakra-ui/react'
 
 export function Paragraph({ children }) {
   return (
@@ -19,7 +19,10 @@ export function ParagraphHead({ children }) {
         textDecoration="underline"
         textUnderlineOffset={6}
         textDecorationThickness={4}
-        textDecorationColor="blackAlpha.500"
+        textDecorationColor={useColorModeValue(
+          'blackAlpha.500',
+          'whiteAlpha.400'
+        )}
       >
         {children}
       </Heading>

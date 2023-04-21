@@ -9,10 +9,13 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  IconButton
+  IconButton,
+  useColorModeValue
 } from '@chakra-ui/react'
 
 import { HamburgerIcon } from '@chakra-ui/icons'
+
+import ToggleTheme from './toggle-theme'
 
 import styles from '../styles/navbar.module.css'
 
@@ -29,11 +32,19 @@ const NavBrand = () => {
 }
 
 const NavLeftItem = ({ isActive, children }) => {
+  const colors = {
+    hover: useColorModeValue('blackAlpha.50', 'whiteAlpha.200'),
+    active: useColorModeValue('blue.100', 'cyan.800')
+  }
   return (
     <Text
       padding={2}
-      _hover={!isActive && { backgroundColor: 'blackAlpha.50' }}
-      backgroundColor={isActive && 'blue.100'}
+      _hover={
+        !isActive && {
+          backgroundColor: colors.hover
+        }
+      }
+      backgroundColor={isActive && colors.active}
       fontFamily="'M Plus Rounded 1c'"
     >
       {children}
@@ -45,7 +56,7 @@ export default function Navbar({ path }) {
   return (
     <Box
       position="fixed"
-      backgroundColor="whiteAlpha.50"
+      backgroundColor={useColorModeValue('whiteAlpha.50', 'blackAlpha.50')}
       width="100%"
       backdropFilter="auto"
       backdropBlur="8px"
@@ -58,18 +69,27 @@ export default function Navbar({ path }) {
         <Flex justifyContent="space-between" flexGrow={1} alignItems="center">
           <Box display={{ base: 'none', md: 'flex' }}>
             <Link href="/work" className={styles.navLink}>
-              <NavLeftItem isActive={path === '/work'}>work</NavLeftItem>
+              <NavLeftItem isActive={/^\/work/.test(path)}>work</NavLeftItem>
             </Link>
             <Link href="/note" className={styles.navLink}>
-              <NavLeftItem isActive={path === '/note'}>note</NavLeftItem>
+              <NavLeftItem isActive={/^\/note/.test(path)}>note</NavLeftItem>
             </Link>
           </Box>
-          <Box display="flex" justifyContent="right" flexGrow={1}>
+          <Box
+            display="flex"
+            justifyContent="right"
+            flexGrow={1}
+            alignItems="center"
+          >
+            <ToggleTheme />
             <Menu>
               <MenuButton
                 as={IconButton}
                 icon={<HamburgerIcon />}
-                backgroundColor="whiteAlpha.50"
+                backgroundColor={useColorModeValue(
+                  'whiteAlpha.50',
+                  'blackAlpha.50'
+                )}
               />
               <MenuList fontFamily="'M Plus Rounded 1c'">
                 <Link href="/">

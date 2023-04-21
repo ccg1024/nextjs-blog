@@ -1,6 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
-import { Box, Flex, Text, Heading, Center } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  Text,
+  Heading,
+  Center,
+  useColorModeValue
+} from '@chakra-ui/react'
 import { ArrowRightIcon, ChevronRightIcon } from '@chakra-ui/icons'
 import ImageLayer from './imageLayer'
 import { ParagraphHead } from './paragraph'
@@ -12,7 +19,11 @@ export const DetailHead = ({ title, date, page }) => {
         {title}
       </Heading>
       <Box display="flex" alignItems="center" gap={2}>
-        <Text backgroundColor={'gray.100'} padding={1} borderRadius="lg">
+        <Text
+          backgroundColor={useColorModeValue('gray.100', 'gray.500')}
+          padding={1}
+          borderRadius="lg"
+        >
           {date}
         </Text>
 

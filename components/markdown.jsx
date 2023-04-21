@@ -4,6 +4,7 @@ import remarkMath from 'remark-math'
 import ReactMarkdown from 'react-markdown'
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
 import docco from 'react-syntax-highlighter/dist/cjs/styles/hljs/docco'
+import dracula from 'react-syntax-highlighter/dist/cjs/styles/hljs/dracula'
 import {
   Box,
   Code,
@@ -27,8 +28,11 @@ import MarkdownStyle from '@/lib/markdown-style'
 
 const MarkComponent = ({ imgPrex, children }) => {
   const colors = {
-    blockQuote: useColorModeValue('gray.100', 'blackAlpha.500'),
+    blockQuote: useColorModeValue('gray.100', 'whiteAlpha.200'),
     code: useColorModeValue('#3d7aed', '#ff63c3')
+  }
+  const highlightStyle = {
+    style: useColorModeValue(docco, dracula)
   }
   return (
     <>
@@ -111,7 +115,7 @@ const MarkComponent = ({ imgPrex, children }) => {
             const match = /language-(\w+)/.exec(className || '')
             return !inline && match ? (
               <SyntaxHighlighter
-                style={docco}
+                style={highlightStyle.style}
                 language={match[1]}
                 showLineNumbers="true"
                 PreTag="div"

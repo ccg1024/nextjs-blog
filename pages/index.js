@@ -4,9 +4,9 @@ import IndexHead from '@/components/index-head'
 import { Paragraph, ParagraphHead } from '@/components/paragraph'
 import Section from '@/components/section'
 import GridItem from '@/components/grid-item'
-import { getIndexInfoData } from '../lib/posts'
+import { getIndexInfoData, getAllMarkdowns } from '../lib/posts'
 
-export default function Home({ infoData }) {
+export default function Home({ infoData, recentNote, recentWork }) {
   return (
     <>
       <Article>
@@ -29,39 +29,40 @@ export default function Home({ infoData }) {
           <Section delay={0.3}>
             <ParagraphHead>Notes</ParagraphHead>
             <SimpleGrid columns={[1, 1, 2]} gap={8}>
-              <Box>
-                <GridItem
-                  thumbnail="/images/cover/vim-plug_note.png"
-                  title="Novim Plugin"
-                  href="/note/vim-plug"
-                >
-                  Neovim 插件管理工具—— vim-plug
-                </GridItem>
-              </Box>
-              <Box>
-                <GridItem
-                  thumbnail="/images/cover/lsp-config_note.png"
-                  title="LSP config"
-                  href="/note/lsp-config"
-                >
-                  Neovim LSP 配置笔记
-                </GridItem>
-              </Box>
+              {recentNote &&
+                recentNote.map(item => {
+                  return (
+                    <Box key={item.id}>
+                      <GridItem
+                        thumbnail={`/images/cover/${item.id}_note.png`}
+                        title={item.title}
+                        href={`/note/${item.id}`}
+                      >
+                        {item.description}
+                      </GridItem>
+                    </Box>
+                  )
+                })}
             </SimpleGrid>
           </Section>
 
           <Section delay={0.4}>
             <ParagraphHead>Works</ParagraphHead>
             <SimpleGrid columns={[1, 1, 2]} gap={8}>
-              <Box>
-                <GridItem
-                  thumbnail="/images/cover/imarkdown_work.png"
-                  title="Imarkdown"
-                  href="/work/imarkdown"
-                >
-                  A cross-platform markdown editor with light/dark preview theme
-                </GridItem>
-              </Box>
+              {recentWork &&
+                recentWork.map(item => {
+                  return (
+                    <Box key={item.id}>
+                      <GridItem
+                        thumbnail={`/images/cover/${item.id}_work.png`}
+                        title={item.title}
+                        href={`/work/${item.id}`}
+                      >
+                        {item.description}
+                      </GridItem>
+                    </Box>
+                  )
+                })}
             </SimpleGrid>
           </Section>
 
@@ -82,9 +83,17 @@ export default function Home({ infoData }) {
 
 export async function getStaticProps() {
   const { infoData } = getIndexInfoData()
+  const allWorks = getAllMarkdowns('works')
+  const allNotes = getAllMarkdowns('notes')
+
+  const recentWork = allWorks.length > 2 ? allWorks.slice(0, 2) : allWorks
+  const recentNote = allNotes.length > 2 ? allNotes.slice(0, 2) : allNotes
+
   return {
     props: {
-      infoData: infoData
+      infoData: infoData,
+      recentNote,
+      recentWork
     }
   }
 }
