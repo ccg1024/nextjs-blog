@@ -15,6 +15,7 @@ export function ParagraphHead({ children }) {
       <Heading
         as="h3"
         fontSize="1.5rem"
+        fontFamily="'M Plus Rounded 1c'"
         textDecoration="underline"
         textUnderlineOffset={6}
         textDecorationThickness={4}

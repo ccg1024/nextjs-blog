@@ -8,7 +8,7 @@ import { ParagraphHead } from './paragraph'
 export const DetailHead = ({ title, date, page }) => {
   return (
     <Flex gap={2} alignItems="start" marginY={8} flexWrap="wrap">
-      <Heading as="h2" fontSize="2rem">
+      <Heading as="h2" fontSize="2rem" fontFamily="'M Plus Rounded 1c'">
         {title}
       </Heading>
       <Box display="flex" alignItems="center" gap={2}>

@@ -2,8 +2,8 @@ import React from 'react'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import ReactMarkdown from 'react-markdown'
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import { docco } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
+import docco from 'react-syntax-highlighter/dist/cjs/styles/hljs/docco'
 import {
   Box,
   Code,
@@ -27,7 +27,7 @@ import MarkdownStyle from '@/lib/markdown-style'
 
 const MarkComponent = ({ imgPrex, children }) => {
   const colors = {
-    blockQuote: useColorModeValue('whiteAlpha.500', 'blackAlpha.500'),
+    blockQuote: useColorModeValue('gray.100', 'blackAlpha.500'),
     code: useColorModeValue('#3d7aed', '#ff63c3')
   }
   return (
@@ -39,14 +39,10 @@ const MarkComponent = ({ imgPrex, children }) => {
           blockquote: ({ node, ...props }) => {
             return (
               <Box
-                borderRadius="5px"
+                borderRadius="md"
                 bg={colors.blockQuote}
-                pl={2}
-                pr={2}
-                mt={2}
-                mb={2}
-                pt="1px"
-                pb="1px"
+                padding="1rem"
+                marginY="1rem"
                 boxShadow="lg"
                 {...props}
               />
@@ -134,6 +130,7 @@ const MarkComponent = ({ imgPrex, children }) => {
                 color={colors.code}
                 className={className}
                 fontSize="1em"
+                backgroundColor="unset"
                 {...props}
               >
                 {children}

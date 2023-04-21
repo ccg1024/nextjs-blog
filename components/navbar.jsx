@@ -20,7 +20,7 @@ const NavBrand = () => {
   return (
     <Box className={styles.navBrandBox}>
       <Link href="/">
-        <Heading padding={2} as="h2">
+        <Heading padding={2} as="h2" fontFamily="'M Plus Rounded 1c'">
           NextJs
         </Heading>
       </Link>
@@ -34,6 +34,7 @@ const NavLeftItem = ({ isActive, children }) => {
       padding={2}
       _hover={!isActive && { backgroundColor: 'blackAlpha.50' }}
       backgroundColor={isActive && 'blue.100'}
+      fontFamily="'M Plus Rounded 1c'"
     >
       {children}
     </Text>
@@ -70,7 +71,7 @@ export default function Navbar({ path }) {
                 icon={<HamburgerIcon />}
                 backgroundColor="whiteAlpha.50"
               />
-              <MenuList>
+              <MenuList fontFamily="'M Plus Rounded 1c'">
                 <Link href="/">
                   <MenuItem>About</MenuItem>
                 </Link>
