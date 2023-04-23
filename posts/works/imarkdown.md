@@ -24,4 +24,4 @@ imarkdown 是一款正在开发中的轻量级 markdown 编辑器，使用的技
 
 - Auto format
 
-![new feature](../../public/images/works/IMarkdown/win-4-23.png)
+![new feature](../../public/images/works/imarkdown/win-4-23.png)
